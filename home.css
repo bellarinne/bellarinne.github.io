@@ -226,14 +226,14 @@ body.home {
 .project__details {
     position: absolute;
     top: 50%;
-    left: calc(100% + var(--project-gap));
+    left: calc(var(--card-width-active) + var(--project-gap));   /* fixed spot: doesn't follow the growing card */
     display: flex;
     flex-direction: column;
     gap: 24px;
     width: var(--details-width);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(calc(-50% + 8px));
+    transform: translateY(-50%);
     transition:
         opacity 250ms ease,
         transform 250ms ease,
