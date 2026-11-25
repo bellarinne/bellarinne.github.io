@@ -36,9 +36,12 @@
 
     <div class="divider" aria-hidden="true"></div>
 
-    <!-- The folder, split into back and front so the photos can slide out between them -->
-    <img class="folder-layer folder-layer--back" src="assets/about/folder-back.png" alt="" aria-hidden="true">
-    <img class="folder-layer folder-layer--front" src="assets/about/folder-front.png" alt="" aria-hidden="true">
+    <!-- The folder (same images and position as on the home page), split into back and front so the
+         photos can slide out between them. The front is a link back to the home page. -->
+    <img class="folder-layer folder-layer--back collage__item collage__folder-back" src="assets/collage/folder-back.webp" alt="" aria-hidden="true">
+    <a class="folder-layer folder-layer--front folder-link" href="index.html" aria-label="Back to work">
+        <img class="collage__item collage__folder-front" src="assets/collage/folder-front.webp" alt="">
+    </a>
 
     <main class="about-page">
         <section class="about-hero" aria-labelledby="about-title">

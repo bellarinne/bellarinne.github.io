@@ -19,21 +19,36 @@ body.about {
    photos can slide out from inside the folder. */
 .about .sidebar { z-index: 4; }
 
+/* Folder back and front sit exactly where they do on the home page
+   (positions come from site.css), but as fixed layers of their own. */
 .folder-layer {
     position: fixed;
+}
+
+.folder-layer--back {
+    z-index: 1;
     pointer-events: none;
 }
 
-.folder-layer--back,
-.folder-layer--front {
+.folder-link {
+    z-index: 3;
     left: 0;
-    bottom: -13px;
-    width: 288px;
-    height: 311px;
+    bottom: 0;
+    width: 282px;
+    height: 306px;
+    cursor: pointer;
 }
 
-.folder-layer--back  { z-index: 1; }
-.folder-layer--front { z-index: 3; }
+.folder-link .collage__folder-front {
+    left: -2px;
+    bottom: 0;
+}
+
+.folder-link:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: -4px;
+    border-radius: 8px;
+}
 
 .about-page {
     position: relative;
@@ -70,6 +85,7 @@ body.about {
 .about-hero__lines {
     position: absolute;
     inset: 0;
+    pointer-events: none;          /* decorative; mustn't block the Back link */
     width: 100%;
     height: 100%;
     overflow: visible;
@@ -116,6 +132,7 @@ body.about {
 
 .about-back {
     position: absolute;
+    z-index: 1;                    /* above the full-width heading */
     left: 49px;
     top: 50px;
     display: inline-flex;
