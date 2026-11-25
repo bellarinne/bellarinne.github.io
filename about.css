@@ -80,7 +80,7 @@ body.about {
 
 .about-hero > .about-title {
     position: absolute;
-    top: 40px;
+    top: 19px;
     left: 0;
     right: 0;
 }
@@ -141,7 +141,7 @@ body.about {
     position: absolute;
     z-index: 1;                    /* above the full-width heading */
     left: 49px;
-    top: 50px;
+    top: 43px;
     display: inline-flex;
     align-items: center;
     gap: 4px;
