@@ -17,7 +17,8 @@
     const N = items.length;
     if (!N) return;
 
-    const PITCH = 260;          // px of scroll per project
+    const PITCH = 400;          // px of scroll per project (higher = less sensitive)
+    const EASE = 0.1;           // how quickly the list catches up with the scroll each frame (lower = more resistance)
     const GAP = 32;             // px between cards
     const W_MIN = 354;          // card width at rest
     const W_MAX = 528;          // card width at the centre
@@ -53,18 +54,44 @@
         track.style.height = LAP * LAPS + window.innerHeight - PITCH + 'px';
     }
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Jump back to the middle lap near either end. The shown position moves by
+    // the same amount, so nothing visibly changes.
     function wrap() {
         const y = window.scrollY;
-        if (y < LAP) window.scrollTo(0, y + LAP * Math.floor(LAPS / 2));
-        else if (y > LAP * (LAPS - 2)) window.scrollTo(0, y - LAP * Math.floor(LAPS / 2));
+        let jump = 0;
+        if (y < LAP) jump = LAP * Math.floor(LAPS / 2);
+        else if (y > LAP * (LAPS - 2)) jump = -LAP * Math.floor(LAPS / 2);
+        if (jump) {
+            window.scrollTo(0, y + jump);
+            shown += jump / PITCH;
+        }
     }
 
+    let shown = 0;          // project position currently drawn (fractional)
     let frame = 0;
-    function render() {
+    let last = 0;
+
+    function tick(now) {
         frame = 0;
         wrap();
+        const target = window.scrollY / PITCH;
+        if (reducedMotion.matches || !last) {
+            shown = target;
+        } else {
+            // Frame-rate independent easing toward the scroll position.
+            const dt = Math.min(64, now - last) / 16.67;
+            shown += (target - shown) * (1 - Math.pow(1 - EASE, dt));
+            if (Math.abs(target - shown) < 0.0005) shown = target;
+        }
+        last = now;
+        render(shown);
+        if (shown !== target) frame = requestAnimationFrame(tick);
+        else last = 0;
+    }
 
-        const p = window.scrollY / PITCH;   // which project is at the centre (fractional)
+    function render(p) {
         const k = Math.floor(p);
         const frac = p - k;
         const centre = window.innerHeight / 2;
@@ -97,12 +124,19 @@
         }
     }
 
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(render); };
+    const schedule = () => {
+        if (frame) return;
+        frame = requestAnimationFrame((now) => {
+            if (!last) last = now - 16.67;   // ease from this frame on
+            tick(now);
+        });
+    };
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', () => { sizeTrack(); schedule(); });
 
     // Start with the first project centred, as in the first Figma frame.
     sizeTrack();
     window.scrollTo(0, LAP * Math.floor(LAPS / 2));
-    render();
+    shown = window.scrollY / PITCH;
+    render(shown);
 })();
