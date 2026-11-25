@@ -22,26 +22,27 @@
     <aside class="sidebar">
         <a class="sidebar__name" href="index.html" aria-label="Bella Rinne — back to work">Bella Rinne</a>
 
-        <div class="sidebar__bio">
-            <p>UX generalist, design systems enthusiast, cartoon hobbyist, and library scholar-ish.</p>
-            <p>Currently in New York City, helping fans experience more live at <strong class="sidebar__employer">SeatGeek.</strong></p>
-        </div>
-
         <nav class="sidebar__links" aria-label="Contact">
             <a class="sidebar__link" href="https://read.cv/bellarinne" target="_blank" rel="noopener">Resume<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
             <a class="sidebar__link" href="https://www.linkedin.com/in/bella-rinne/" target="_blank" rel="noopener">LinkedIn<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
             <a class="sidebar__link" href="mailto:bella.rinne@columbia.edu">Email<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
         </nav>
+
+        <div class="sidebar__bio">
+            <p>UX generalist, design systems enthusiast, cartoon hobbyist, and library scholar-ish.</p>
+            <p>Currently in New York City, helping fans experience more live at <strong class="sidebar__employer">SeatGeek.</strong></p>
+        </div>
     </aside>
 
     <div class="divider" aria-hidden="true"></div>
 
     <!-- The folder, split into back and front so the photos can slide out between them -->
-    <img class="folder-layer folder-layer--back collage__item collage__folder-back" src="assets/collage/folder-back.webp" alt="" aria-hidden="true">
-    <img class="folder-layer folder-layer--front collage__item collage__folder-front" src="assets/collage/folder-front.webp" alt="" aria-hidden="true">
+    <img class="folder-layer folder-layer--back" src="assets/about/folder-back.png" alt="" aria-hidden="true">
+    <img class="folder-layer folder-layer--front" src="assets/about/folder-front.png" alt="" aria-hidden="true">
 
     <main class="about-page">
         <section class="about-hero" aria-labelledby="about-title">
+            <a class="about-back about-reveal" href="index.html"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M8.5 3.5L5 7l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Back</a>
             <h1 class="about-title about-reveal" id="about-title">Behind the designs is a writer, actually.</h1>
 
             <svg class="about-hero__lines about-reveal" viewBox="0 0 1016 1160" aria-hidden="true">
@@ -60,32 +61,28 @@
                 <line x1="941.7" y1="533.2" x2="684.2" y2="731.2"/>
             </svg>
 
-            <figure class="about-photo about-photo--polaroid" data-from="polaroid">
-                <img class="about-photo__img" src="assets/collage/polaroid-photo.webp" alt="Bella in yellow-tinted sunglasses">
-                <img class="about-polaroid__script about-reveal" src="assets/about/about-bella-script.webp" alt="About Bella">
-            </figure>
+            <img class="about-photo about-photo--polaroid" data-from="polaroid" src="assets/about/polaroid.png" width="157" height="235" alt="Polaroid of Bella in yellow-tinted sunglasses, captioned “About Bella”">
 
             <ul class="about-logos" aria-label="Where I've worked">
-                <li class="about-logo about-reveal" style="--cx: 72.2px; --cy: 515.3px;"><img src="assets/logos/seatgeek.svg" width="51" height="36" alt="SeatGeek"></li>
-                <li class="about-logo about-reveal" style="--cx: 197.2px; --cy: 515.3px;"><img src="assets/logos/adobe.svg" width="39" height="38" alt="Adobe"></li>
-                <li class="about-logo about-reveal" style="--cx: 287.9px; --cy: 515.3px;"><img src="assets/logos/nyt.svg" width="32" height="40" alt="The New York Times"></li>
-                <li class="about-logo about-reveal" style="--cx: 734.9px; --cy: 517.3px;"><img src="assets/logos/symbotic.svg" width="39" height="39" alt="Symbotic"></li>
-                <li class="about-logo about-reveal" style="--cx: 838.4px; --cy: 517.3px;"><img src="assets/logos/tesla.svg" width="39" height="39" alt="Tesla"></li>
-                <li class="about-logo about-reveal" style="--cx: 962.3px; --cy: 517.3px;"><img src="assets/logos/wayfair.svg" width="39" height="39" alt="Wayfair"></li>
+                <li class="about-logo about-reveal" style="--cx: 72.2px; --cy: 515.3px;"><img src="assets/about/sticker-seatgeek.png" width="57" height="42" alt="SeatGeek"></li>
+                <li class="about-logo about-reveal" style="--cx: 197.2px; --cy: 515.3px;"><img src="assets/about/sticker-adobe.png" width="43" height="42" alt="Adobe"></li>
+                <li class="about-logo about-reveal" style="--cx: 287.9px; --cy: 515.3px;"><img src="assets/about/sticker-nyt.png" width="35" height="42" alt="The New York Times"></li>
+                <li class="about-logo about-reveal" style="--cx: 734.9px; --cy: 517.3px;"><img src="assets/about/sticker-symbotic.png" width="42" height="42" alt="Symbotic"></li>
+                <li class="about-logo about-reveal" style="--cx: 838.4px; --cy: 517.3px;"><img src="assets/about/sticker-tesla.png" width="42" height="42" alt="Tesla"></li>
+                <li class="about-logo about-reveal" style="--cx: 962.3px; --cy: 517.3px;"><img src="assets/about/sticker-wayfair.png" width="42" height="42" alt="Wayfair"></li>
             </ul>
 
             <div class="about-copy about-copy--intro about-reveal">
                 <p>Studying English Literature made me a strong storyteller. I love writing compelling user narratives that demonstrate the value of my designs.</p>
-                <p>Since starting my UX career in 2022, I’ve learned to prioritize a design process that is founded on empathy — designing products that are, of course, visually appealing, and also consider one’s emotional journey. I believe good experience design meets users wherever they are.</p>
+                <p>Since starting my UX career in 2022, I’ve learned to prioritize a design process that is founded on empathy — designing products that are, of course, visually appealing, and <em>also</em> consider one’s emotional journey. I believe good experience design meets users wherever they are.</p>
             </div>
 
-            <img class="about-photo about-photo--horse" data-from="photo-54" src="assets/collage/image-54.webp" alt="“Reality Awaits” poster of a cowboy on a rearing horse">
-            <img class="about-photo about-photo--beach" data-from="photo-52" src="assets/collage/image-52.webp" alt="Bella standing in the surf at the beach">
-            <img class="about-photo about-photo--graduation" data-from="photo-51" src="assets/collage/image-51.webp" alt="Bella in graduation robes in front of a stone archway">
-            <!-- TODO: stand-in cut from the mockup screenshot; replace with the real photo export -->
-            <img class="about-photo about-photo--statue" data-from="statue" src="assets/about/statue-placeholder.webp" alt="Bella smiling beside a bronze bust">
-            <img class="about-photo about-photo--stage" data-from="photo-50" src="assets/collage/image-50.webp" alt="Bella seated at a table on stage during a talk">
-            <img class="about-photo about-photo--building" data-from="photo-53" src="assets/collage/image-53.webp" alt="Pratt Institute building with yellow banners">
+            <img class="about-photo about-photo--horse" data-from="photo-54" src="assets/about/reality-awaits.png" width="139" height="139" alt="“Reality Awaits” poster of a cowboy on a rearing horse">
+            <img class="about-photo about-photo--beach" data-from="photo-52" src="assets/about/beach.png" width="191" height="148" alt="Bella standing in the surf at the beach">
+            <img class="about-photo about-photo--graduation" data-from="photo-51" src="assets/about/trinity.png" width="190" height="240" alt="Bella in graduation robes in front of a stone archway at Trinity College Dublin">
+            <img class="about-photo about-photo--statue" data-from="statue" src="assets/about/columbia.png" width="190" height="240" alt="Bella smiling beside a bronze bust at Columbia">
+            <img class="about-photo about-photo--stage" data-from="photo-50" src="assets/about/adobe-talk.png" width="116" height="155" alt="Bella seated at a table on stage during a talk at Adobe">
+            <img class="about-photo about-photo--building" data-from="photo-53" src="assets/about/pratt.png" width="211" height="129" alt="Pratt Institute building with yellow banners">
 
             <div class="about-copy about-copy--outro about-reveal">
                 <p>Besides design, I’m an avid illustrator and cartoonist, and pursuing a Master’s in Library and Information Science, with a concentration in User Experience, at Pratt Institute.</p>
@@ -120,8 +117,8 @@
                 <li><a class="writing-card" href="#"><span>Interrogating the ‘god-terms’ we write: a scaffolded solution for students <span class="writing-card__year">(2025)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                 <li><a class="writing-card" href="#"><span>Author’s Note: Speak to Me, Muse, of the Dual BA <span class="writing-card__year">(2025)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
                 <li><a class="writing-card" href="#"><span>The imposition of social control in dystopia / the necessity of community in queer narratives (2 hour exam) <span class="writing-card__year">(2023)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-                <li><a class="writing-card" href="#"><span>Translating indigenous oral tradition to modern storytelling in Leslie Marmon Silko’s Man in the Rainclouds <span class="writing-card__year">(2022)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-                <li><a class="writing-card" href="#"><span>Nature as a vessel for retrospective self-realization in Alison Bechdel’s Fun Home <span class="writing-card__year">(2021)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Translating indigenous oral tradition to modern storytelling in Leslie Marmon Silko’s <em>Man in the Rainclouds</em> <span class="writing-card__year">(2022)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Nature as a vessel for retrospective self-realization in Alison Bechdel’s <em>Fun Home</em> <span class="writing-card__year">(2021)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
             </ul>
         </section>
     </main>

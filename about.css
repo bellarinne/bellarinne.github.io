@@ -24,6 +24,14 @@ body.about {
     pointer-events: none;
 }
 
+.folder-layer--back,
+.folder-layer--front {
+    left: 0;
+    bottom: -13px;
+    width: 288px;
+    height: 311px;
+}
+
 .folder-layer--back  { z-index: 1; }
 .folder-layer--front { z-index: 3; }
 
@@ -72,48 +80,22 @@ body.about {
     stroke-width: 1;
 }
 
+/* Photo exports come with their borders (and, for the two centre photos,
+   their tilt) built in, so they're placed at their natural size. */
 .about-photo {
-    --r: 0deg;
     position: absolute;
-    margin: 0;
     display: block;
-    object-fit: cover;
-    rotate: var(--r);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    height: auto;                  /* keeps the aspect while the intro animates width */
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12));
 }
 
-.about-photo--polaroid {
-    left: 431.4px;
-    top: 126.9px;
-    width: 155.2px;
-    height: 232.3px;
-    background: #f7f5f4;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-}
-
-.about-photo--polaroid .about-photo__img {
-    position: absolute;
-    left: 8.2%;
-    top: 5.5%;
-    width: 83.6%;
-    height: 68.9%;
-    object-fit: cover;
-}
-
-.about-polaroid__script {
-    position: absolute;
-    left: 50%;
-    top: 194px;
-    width: 97px;
-    margin-left: -48.5px;          /* centred without translate, which the fade-in animates */
-}
-
-.about-photo--horse      { left: 129.8px; top: 712.5px; width: 138.6px; height: 138.6px; }
-.about-photo--beach      { left: 112.2px; top: 880.4px; width: 187.4px; height: 144.4px; }
-.about-photo--graduation { left: 338.7px; top: 726.3px; width: 157.2px; height: 226.3px; --r: -3deg; }
-.about-photo--statue     { left: 507.4px; top: 726.6px; width: 171px;   height: 225.6px; --r: 3deg; border: 4px solid #fff; }
-.about-photo--stage      { left: 757.4px; top: 714.4px; width: 112.2px; height: 151.3px; }
-.about-photo--building   { left: 710.5px; top: 890px;   width: 206px;   height: 125px; }
+.about-photo--polaroid   { left: 430.5px; top: 125.5px; }
+.about-photo--horse      { left: 129.6px; top: 712.3px; }
+.about-photo--beach      { left: 110.4px; top: 878.6px; }
+.about-photo--graduation { left: 322.3px; top: 719.4px; }
+.about-photo--statue     { left: 497.9px; top: 719.4px; }
+.about-photo--stage      { left: 755.5px; top: 712.5px; }
+.about-photo--building   { left: 708px;   top: 888px; }
 
 .about-logos {
     position: absolute;
@@ -130,8 +112,16 @@ body.about {
 
 .about-logo img {
     display: block;
-    height: 39px;
-    width: auto;
+}
+
+.about-back {
+    position: absolute;
+    left: 49px;
+    top: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-secondary);
 }
 
 .about-copy {

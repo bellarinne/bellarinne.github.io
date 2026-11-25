@@ -1,5 +1,6 @@
 // About page intro: the photos fly out of the folder to their places on the page,
-// then the connecting lines draw in and the logos and text fade up.
+// then the connecting lines draw in and the logos and text fade up. The empty
+// folder stays where it is.
 //
 // Each photo starts exactly where it rests in the folder on the home page
 // (same numbers as site.css) and travels on a slightly random arc with its own
@@ -26,6 +27,7 @@
         'statue':   { left: 70,     bottom: 110,    w: 130,    h: 175,    r: -4 },  // tucked fully inside
     };
 
+    const bakedTilt = { 'photo-51': -3, 'statue': 3 };          // degrees already in the image
     const rand = (min, max) => min + Math.random() * (max - min);
     const stageBox = stage.getBoundingClientRect();
     const photos = Array.from(stage.querySelectorAll('.about-photo[data-from]'));
@@ -35,25 +37,23 @@
         const pose = folderPoses[el.dataset.from];
         if (!pose) return;
         const cs = getComputedStyle(el);
-        const end = {
-            left: parseFloat(cs.left), top: parseFloat(cs.top),
-            w: parseFloat(cs.width), h: parseFloat(cs.height),
-            r: parseFloat(cs.getPropertyValue('--r')) || 0,
-        };
+        const end = { left: parseFloat(cs.left), top: parseFloat(cs.top), w: el.offsetWidth, r: 0 };
+        // Exports with a tilt built in start rotated back by that amount, so they
+        // leave the folder at the same angle they rest at on the home page.
         const start = {
             left: pose.left - stageBox.left,
             top: window.innerHeight - pose.bottom - pose.h - stageBox.top,
-            w: pose.w, h: pose.h, r: pose.r,
+            w: pose.w, r: pose.r - (bakedTilt[el.dataset.from] || 0),
         };
         // Midpoint of the arc: lifted, nudged sideways and over-rotated a little.
         const mid = {
             left: (start.left + end.left) / 2 + rand(-30, 30),
             top: Math.min(start.top, end.top) + (Math.abs(start.top - end.top) * 0.35) - rand(30, 90),
-            w: (start.w + end.w) / 2, h: (start.h + end.h) / 2,
+            w: (start.w + end.w) / 2,
             r: end.r + rand(-9, 9),
         };
         const frame = (p, extra = {}) => ({
-            left: p.left + 'px', top: p.top + 'px', width: p.w + 'px', height: p.h + 'px',
+            left: p.left + 'px', top: p.top + 'px', width: p.w + 'px',   // height follows the image's aspect
             rotate: p.r + 'deg', ...extra,
         });
         const duration = rand(950, 1350);
@@ -65,24 +65,8 @@
             { duration, delay, easing: 'cubic-bezier(0.22, 0.75, 0.25, 1)', fill: 'backwards' }
         );
 
-        // The polaroid's photo starts with the folder version's proportions.
-        const inner = el.querySelector('.about-photo__img');
-        if (inner) {
-            inner.animate(
-                [{ left: '6.4%', top: '6.4%', height: '73.6%' }, { left: '8.2%', top: '5.5%', height: '68.9%' }],
-                { duration, delay, easing: 'cubic-bezier(0.22, 0.75, 0.25, 1)', fill: 'backwards' }
-            );
-        }
     });
 
-    // The folder's back slips away once it's empty.
-    const back = document.querySelector('.folder-layer--back');
-    if (back) {
-        back.animate(
-            [{ opacity: 1, translate: '0 0' }, { opacity: 0, translate: '0 28px' }],
-            { duration: 550, delay: 450, easing: 'ease-in', fill: 'forwards' }
-        );
-    }
 
     // Everything else comes in as the photos settle.
     const settle = lastLanding * 0.75;
@@ -94,8 +78,7 @@
         );
     };
 
-    const title = stage.querySelector('.about-title');
-    if (title) fadeUp(title, 150);
+    stage.querySelectorAll('.about-title, .about-back').forEach((el) => fadeUp(el, 150));
 
     stage.querySelectorAll('.about-logo').forEach((el) => fadeUp(el, settle + rand(0, 260), 'scale: 0.85'));
 
@@ -112,8 +95,6 @@
     }
 
     stage.querySelectorAll('.about-copy').forEach((el, i) => fadeUp(el, settle + 200 + i * 150));
-    const script = stage.querySelector('.about-polaroid__script');
-    if (script) fadeUp(script, settle + 100, 'translate: 0 2px');
 
     // All start states are in place; reveal the page in the same frame.
     root.classList.remove('intro');
