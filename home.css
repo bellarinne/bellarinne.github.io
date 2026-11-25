@@ -207,11 +207,10 @@ body.home {
 .project__media {
     flex: none;
     width: var(--card-width);
-    aspect-ratio: 2926 / 1732;
+    aspect-ratio: 2798 / 1604;    /* screenshots cropped to their content */
     overflow: hidden;
     border: 0.5px solid #b1b5bd;
     border-radius: 6px;
-    background: rgba(225, 225, 225, 0.5);
     box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.15);
 }
 
