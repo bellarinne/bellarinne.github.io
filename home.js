@@ -22,7 +22,7 @@
     const GAP = 32;             // px between cards
     const W_MIN = 354;          // card width at rest
     const W_MAX = 528;          // card width at the centre
-    const ASPECT = 2798 / 1604;
+    const ASPECT = 2926 / 1732;
     const LAPS = 7;             // laps of the loop in the scroll track
     const LAP = PITCH * N;
 
