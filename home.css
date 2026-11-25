@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Home page — source: Figma "Portfolio" › Home page › 1440+
+   Sidebar, divider and collage are fixed; the project list scrolls.
+   ========================================================================== */
+
+:root {
+    --page-padding: 32px;
+    --sidebar-width: 231px;
+    --divider-x: 355.5px;          /* 32 + 231 + 92 */
+    --list-x: 425.5px;             /* divider + 70 */
+    --project-gap: 32px;
+    --card-width: 354px;
+    --card-width-active: 528px;
+    --details-width: 355px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration: 450ms;
+}
+
+html {
+    overflow-anchor: none;         /* home.js anchors the active project itself */
+}
+
+body.home {
+    overflow-x: hidden;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Sidebar ---------------------------------------------------------------- */
+
+.sidebar {
+    position: fixed;
+    top: 23px;
+    left: var(--page-padding);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: var(--sidebar-width);
+}
+
+.sidebar__name {
+    font-family: "Jaini Purva", var(--font-display);
+    font-size: 32px;
+    line-height: normal;
+    color: var(--color-secondary);
+}
+
+.sidebar__links {
+    display: flex;
+    gap: 8px;
+}
+
+.sidebar__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-secondary);
+}
+
+.sidebar__arrow {
+    display: block;
+    flex: none;
+}
+
+.sidebar__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sidebar__employer {
+    font-weight: 600;
+    color: #f95a52;
+}
+
+.divider {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--divider-x);
+    width: 0;
+    border-left: 0.5px solid rgba(78, 90, 109, 0.4);
+}
+
+/* Collage (bottom-left, positions from the 1440×900 frame) --------------- */
+
+.collage {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 300px;
+    height: 360px;
+    pointer-events: none;
+}
+
+.collage__item {
+    position: absolute;
+    display: block;
+    object-fit: cover;
+}
+
+.collage__folder-back {
+    left: -10.71px;
+    bottom: 14.58px;
+    width: 315.17px;
+    height: 287.98px;
+    object-position: bottom;
+    transform: rotate(89.49deg);
+    box-shadow: 0 1px 1.1px rgba(0, 0, 0, 0.52);
+}
+
+.collage__photo-50 {
+    left: 45.54px;
+    bottom: 180.02px;
+    width: 122.55px;
+    height: 163.87px;
+    transform: rotate(5.09deg);
+    box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.collage__photo-51 {
+    left: 140.51px;
+    bottom: 161.05px;
+    width: 127.05px;
+    height: 169.9px;
+    transform: rotate(2.15deg);
+    box-shadow: -2px 1px 1.1px rgba(0, 0, 0, 0.4), -2px 2px 4.3px rgba(0, 0, 0, 0.38);
+}
+
+.collage__polaroid {
+    left: 182.03px;
+    bottom: 72.81px;
+    width: 88.22px;
+    height: 112.18px;
+    background: #fff;
+    transform: rotate(5deg);
+    box-shadow: 0 4px 7.9px rgba(0, 0, 0, 0.14);
+}
+
+.collage__polaroid-photo {
+    left: 188.37px;
+    bottom: 95.43px;
+    width: 73.77px;
+    height: 82.52px;
+    transform: rotate(5deg);
+}
+
+.collage__photo-52 {
+    left: 125.24px;
+    bottom: -21.76px;
+    width: 161.64px;
+    height: 125.21px;
+    transform: rotate(6deg);
+    box-shadow: -2px -2px 3.9px rgba(0, 0, 0, 0.1);
+}
+
+.collage__photo-53 {
+    left: 0;
+    bottom: 212.57px;
+    width: 166px;
+    height: 101.52px;
+    transform: rotate(-1.92deg);
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.39);
+}
+
+.collage__photo-54 {
+    left: 171.2px;
+    bottom: 159.62px;
+    width: 76.02px;
+    height: 76.02px;
+    transform: rotate(-4deg);
+    box-shadow: 1px 1px 1.1px rgba(0, 0, 0, 0.13), 2px -1px 3.9px rgba(0, 0, 0, 0.25);
+}
+
+.collage__folder-front {
+    left: -2px;
+    bottom: 0;
+    width: 282px;
+    height: 306px;
+}
+
+/* Project list ------------------------------------------------------------ */
+
+.work {
+    padding-left: var(--list-x);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--project-gap);
+    padding: var(--project-gap) 0;
+}
+
+.project {
+    position: relative;
+    width: fit-content;            /* the card's width; details sit beside it */
+}
+
+.project__media {
+    flex: none;
+    width: var(--card-width);
+    aspect-ratio: 2926 / 1732;
+    overflow: hidden;
+    border: 0.5px solid #b1b5bd;
+    border-radius: 6px;
+    background: rgba(225, 225, 225, 0.5);
+    box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.15);
+    transition:
+        width var(--duration) var(--ease),
+        border-radius var(--duration) var(--ease),
+        box-shadow var(--duration) var(--ease);
+}
+
+.project__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project__details {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + var(--project-gap));
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: var(--details-width);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(-50% + 8px));
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        visibility 0s linear 250ms;
+}
+
+.project__meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.project__logo {
+    display: block;
+    height: 45px;
+    width: auto;
+}
+
+.project__lock {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text-muted);
+}
+
+.project__lock img {
+    display: block;
+}
+
+.project__title {
+    margin-top: -8px;              /* 16px gap under the logo row in Figma */
+    font-size: 40px;
+    line-height: 46px;
+    color: var(--accent, var(--color-heading));
+}
+
+.project__summary {
+    color: var(--color-primary);
+}
+
+.project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project__tags .tag {
+    font-size: 12px;
+}
+
+/* Active project: enlarged card + details -------------------------------- */
+
+.project.is-active .project__media {
+    width: var(--card-width-active);
+    border-radius: 8px;
+    box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.05);
+}
+
+.project.is-active .project__details {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+    transition:
+        opacity 300ms ease 150ms,
+        transform 300ms ease 150ms,
+        visibility 0s;
+}
+
+.no-transition,
+.no-transition * {
+    transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project__media,
+    .project__details {
+        transition: none !important;
+    }
+}
