@@ -80,7 +80,7 @@ body.about {
 
 .about-hero > .about-title {
     position: absolute;
-    top: 19px;
+    top: 24.75px;              /* glyph tops line up with "Bella Rinne" */
     left: 0;
     right: 0;
 }
@@ -141,7 +141,7 @@ body.about {
     position: absolute;
     z-index: 1;                    /* above the full-width heading */
     left: 49px;
-    top: 43px;
+    top: 38px;                 /* midway between the name and the heading */
     display: inline-flex;
     align-items: center;
     gap: 4px;
