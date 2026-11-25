@@ -25,7 +25,7 @@
     const ASPECT = 2926 / 1732;
     const FADE_START = 0.04;    // distance from centre (in projects) where details start to fade
     const FADE_LENGTH = 0.18;   // fade-out distance for the project leaving the centre
-    const FADE_IN_LENGTH = 0.5; // fade-in distance for the project arriving (longer = appears sooner)
+    const FADE_IN_LENGTH = 0.7; // fade-in distance for the project arriving (longer = appears sooner)
     const LAPS = 7;             // laps of the loop in the scroll track
     const LAP = PITCH * N;
 
@@ -127,6 +127,8 @@
             const reveal = 1 - smooth(clamp01((Math.abs(d) - FADE_START) / (arriving ? FADE_IN_LENGTH : FADE_LENGTH)));
             const det = details[idx];
             det.style.opacity = reveal.toFixed(3);
+            // Hold the details at the viewport's vertical centre so they never move with the card.
+            det.style.transform = `translateY(calc(-50% + ${(centre - ys[i]).toFixed(2)}px))`;
             det.style.visibility = reveal > 0.01 ? 'visible' : 'hidden';
             items[idx].classList.toggle('is-active', g > 0.5);
         }
