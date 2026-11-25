@@ -1,267 +1,146 @@
-/* Global Style*/
+/* ==========================================================================
+   Design System — source: Figma "Portfolio" › Design System
+   ========================================================================== */
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    width: 100%;
+:root {
+    /* Color variables (Figma: Variable collection) */
+    --color-primary: #1c3c6e;
+    --color-secondary: #5d7396;
+    --color-background: #f3f2f2;
+    --color-secondary-background: #dde0e5;
+
+    /* Values used in the design system but not bound to a variable */
+    --color-heading: #4f70a2;
+    --color-tag-text: #4e5a6d;
+    --color-text-muted: rgba(28, 60, 110, 0.7);   /* Primary @ 70% */
+    --color-link-hover: rgba(28, 60, 110, 0.4);   /* Primary @ 40% */
+    --color-tag-background: rgba(28, 60, 110, 0.1); /* Primary @ 10% */
+
+    /* Font families */
+    --font-display: "Jaini", system-ui, sans-serif;
+    --font-body: "DM Sans", system-ui, sans-serif;
 }
 
-.instrument-serif-regular {
-    font-family: "Instrument Serif", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+/* Reset ------------------------------------------------------------------ */
 
-  
-h1{
-    color: #204D81;
-    font-family: "Space Mono";
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0%;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.highlight-under-construction{
-    font-family: "Space Mono", monospace;
-    max-width: 100%;
-    white-space: nowrap;
-    word-spacing: normal;
-    color: #7290b3;
-}
-
-.highlight-red{
-    color: #F95A52
-}
-
-ul.custom-bullets li {
-    display: flex;
-    margin-bottom: 12px; 
-    line-height: 14px;
-    align-items: center;
-}
-
-   /* Custom icon for the New York Times */
-   ul.custom-bullets li:nth-child(1)::before {
-    content: url('NYT\ Icon.svg');
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin-right: 8px;
-}
-
-.about .highlight {
-    color: #F95A52;
-    font-family: Adobe;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    margin-left: 4px;
-    margin-right: 6px;
-}
- a {
-    text-decoration: none;
-    color: inherit;
- }
-
-.no-bullets li a {
-    text-decoration: none;
-    color: inherit;
-    white-space: nowrap;
-    line-height: 15px;
-}
+html,
 body {
-    font-family: 'instrument serif', serif;
     margin: 0;
     padding: 0;
-    background-color: #eceef0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    line-height: 120%;
-    box-sizing: border-box;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 578px; 
-    width: 100%;
-    padding-top: 24px;
-    padding-right: 24px;
-    padding-left: 24px;
-    padding-bottom: 8px;
-    border: 1px solid #C7D2DE;
-    border-radius: 8px;
-    box-sizing: border-box;
-    align-self: center;
-    overflow: hidden;
-}
-
-
-.line-height-adjust {
-    line-height: .8;
-}
-
-.about h1 {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: #204D81;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.about h2 {
-    font-size: 24px;
-    font-weight: 200;
-    line-height: 1.3;
-    color: #204D81;
+h1, h2, p, ul {
     margin: 0;
-}
-
-.highlight {
-    color: #F95A52;
-    font-size: 17.5px;
-    margin: 0 4px;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #C7D2DE;
-    margin: 24px 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.work-contact-experience {
-    display: flex;
-    flex-direction: row;
-    gap: 72px;
-    width: 100%
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-@media (max-width: 640px) {
-    .container {
-        padding: 20px;
-        height: auto;
-        margin: 24px 0; 
-        width: 100%;
-        max-width: fit-content;
-        box-sizing: border-box;
-        margin-left: 24px;
-    margin-right: 24px;
-    }
-
-    .work-contact-experience {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .experience {
-        width: 100%;
-    }
-
-    .construction-line {
-        display: block; /* Make it visible */
-        width: 100%; /* Ensure it takes full width inside the container */
-        max-width: 580px; /* Limit it to the same max-width as the container */
-        margin-top: 0px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
-}
-
-@media (min-width: 641px) {
-    .construction-line {
-        display: none;
-    }
-}
-
-.experience {
-    flex: 1;
-    width:321px;
-    white-space: nowrap;
-    min-width: 640px;
-}
-
-h1.section-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: #204D81;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    
 }
 
 ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    
 }
 
-li {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    margin-bottom: 12px;
-    display: flex;
+img {
+    max-width: 100%;
+}
+
+/* Base ------------------------------------------------------------------- */
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography ------------------------------------------------------------- */
+
+/* Header 1 — Jaini 40 / 46 */
+h1,
+.heading-1 {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 46px;
+    color: var(--color-heading);
+}
+
+/* Header 2 — Jaini 32 / auto */
+h2,
+.heading-2 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-heading);
+}
+
+/* Text 1 — DM Sans 14 / auto */
+p,
+li,
+.text-1 {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-primary);
+}
+
+/* Text 2 — DM Sans 11 / auto */
+small,
+.text-2 {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-text-muted);
+}
+
+/* Links ------------------------------------------------------------------ */
+
+a,
+.link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: normal;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus-visible,
+.link:hover {
+    color: var(--color-link-hover);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Tag -------------------------------------------------------------------- */
+
+.tag {
+    display: inline-flex;
     align-items: center;
-    color: #204D81;
-}
-
-.inline-image {
-    width: px;
-    height: auto;
-    margin-left: 4px;
-}
-
-.highlight-blue {
-    color: #7290B3;
-    margin-left: 4px;
-    line-height: 14px;
-}
-
-.no-bullets li {
-    color: #204D81
-}
-.no-bullets li:hover a {
-    color: #F95A52;
-}
-
-.custom-bullets li::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-size: cover;
-    margin-right: 8px;
-}
-
-.custom-bullets li:nth-child(1)::before {
-    background-image: url('NYT Icon.svg');
-}
-
-.custom-bullets li:nth-child(2)::before {
-    background-image: url('Symbotic Icon.svg');
-}
-
-.custom-bullets li:nth-child(3)::before {
-    background-image: url('Tesla Icon.svg');
-}
-
-.custom-bullets li:nth-child(4)::before {
-    background-image: url('WillowTree Logo.svg');
-}
-
-.custom-bullets li:nth-child(5)::before {
-    background-image: url('Wayfair Logo.svg');
-}
-
-.smaller {
-    font-size: 8px;
+    justify-content: center;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: var(--color-tag-background);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--color-tag-text);
+    white-space: nowrap;
 }
