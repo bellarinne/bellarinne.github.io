@@ -327,6 +327,11 @@ body:not(.is-scrubbed) .project:first-child .project__details {
 
 html:has(.is-scrubbed) {
     scroll-snap-type: y proximity;
+    scrollbar-width: none;         /* the looping scroll track isn't meaningful to show */
+}
+
+html:has(.is-scrubbed)::-webkit-scrollbar {
+    display: none;
 }
 
 .scroll-track__stop {
