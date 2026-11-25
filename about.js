@@ -20,7 +20,7 @@
 
     // Resting poses in the folder, in viewport px from the bottom-left (see site.css).
     const folderPoses = {
-        'polaroid': { left: 182.03, bottom: 72.81,  w: 88.22,  h: 112.18, r: 5 },
+        'polaroid': { left: 182.03, bottom: 53.5,   w: 88.22,  h: 131.49, r: 5 },
         'photo-51': { left: 140.51, bottom: 161.05, w: 127.05, h: 169.9,  r: 2.15 },
         'photo-52': { left: 125.24, bottom: -21.76, w: 161.64, h: 125.21, r: 6 },
         'photo-53': { left: 0,      bottom: 212.57, w: 166,    h: 101.52, r: -1.92 },

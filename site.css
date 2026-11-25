@@ -150,11 +150,11 @@
 
 .collage__polaroid {               /* polaroid (frame and photo are one image) */
     left: 182.03px;
-    bottom: 72.81px;
+    bottom: 53.5px;                /* top edge where the Figma frame has it */
     width: 88.22px;
-    height: 112.18px;
+    height: 131.49px;              /* the polaroid's own proportions, so nothing is cropped */
     --r: 5deg;
-    box-shadow: 0 4px 7.9px rgba(0, 0, 0, 0.14);
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.14));   /* follows the rounded corners */
 }
 
 .collage__photo-52 {               /* beach */
