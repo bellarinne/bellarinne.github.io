@@ -28,7 +28,7 @@
         'photo-50': { left: 45.54,  bottom: 180.02, w: 122.55, h: 163.87, r: 5.09 },
         'statue':   { left: 70,     bottom: 110,    w: 130,    h: 175,    r: -4 },  // tucked fully inside
     };
-    const bakedTilt = { 'photo-51': -3, 'statue': 3 };          // degrees already in the image
+    const bakedTilt = { 'photo-51': -3 };                       // degrees already in the image
 
     const rand = (min, max) => min + Math.random() * (max - min);
     const photos = Array.from(stage.querySelectorAll('.about-photo[data-from]'));
@@ -38,7 +38,7 @@
     // Where a photo sits on the page, and where it sits in the folder, in stage px.
     function placeOnPage(el) {
         const cs = getComputedStyle(el);
-        return { left: parseFloat(cs.left), top: parseFloat(cs.top), w: el.offsetWidth, r: 0 };
+        return { left: parseFloat(cs.left), top: parseFloat(cs.top), w: el.offsetWidth, r: parseFloat(cs.getPropertyValue('--r')) || 0 };
     }
     function placeInFolder(el) {
         const pose = folderPoses[el.dataset.from];

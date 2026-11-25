@@ -96,8 +96,8 @@ body.about {
     stroke-width: 1;
 }
 
-/* Photo exports come with their borders (and, for the two centre photos,
-   their tilt) built in, so they're placed at their natural size. */
+/* The polaroid and the graduation photo come with their frame/border (and
+   tilt) built in; the others get a white border and tilt below. */
 .about-photo {
     position: absolute;
     display: block;
@@ -106,12 +106,23 @@ body.about {
 }
 
 .about-photo--polaroid   { left: 430.5px; top: 125.5px; }
-.about-photo--horse      { left: 129.6px; top: 712.3px; }
-.about-photo--beach      { left: 110.4px; top: 878.6px; }
+.about-photo--horse      { left: 129.6px; top: 712.3px; width: 139px; }
+.about-photo--beach      { left: 110.4px; top: 878.6px; width: 191px; }
 .about-photo--graduation { left: 322.3px; top: 719.4px; }
-.about-photo--statue     { left: 497.9px; top: 719.4px; }
-.about-photo--stage      { left: 755.5px; top: 712.5px; }
-.about-photo--building   { left: 708px;   top: 888px; }
+.about-photo--statue     { left: 507.4px; top: 726.4px; width: 171px; --r: 3deg; border-width: 4px; }
+.about-photo--stage      { left: 755.5px; top: 712.5px; width: 116px; }
+.about-photo--building   { left: 708px;   top: 888px;   width: 211px; }
+
+/* These exports have no border or tilt of their own, so add them here */
+.about-photo--beach,
+.about-photo--statue,
+.about-photo--stage,
+.about-photo--building {
+    border: 3px solid #fff;
+    rotate: var(--r, 0deg);
+}
+
+.about-photo--statue { border-width: 4px; }
 
 .about-logos {
     position: absolute;
