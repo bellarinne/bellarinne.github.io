@@ -12,8 +12,6 @@
     --card-width: 354px;
     --card-width-active: 528px;
     --details-width: 355px;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --duration: 450ms;
 }
 
 html {
@@ -215,10 +213,6 @@ body.home {
     border-radius: 6px;
     background: rgba(225, 225, 225, 0.5);
     box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.15);
-    transition:
-        width var(--duration) var(--ease),
-        border-radius var(--duration) var(--ease),
-        box-shadow var(--duration) var(--ease);
 }
 
 .project__media img {
@@ -289,32 +283,53 @@ body.home {
     font-size: 12px;
 }
 
-/* Active project: enlarged card + details -------------------------------- */
+/* Without JS: first project shown enlarged, list scrolls normally ------- */
 
-.project.is-active .project__media {
+body:not(.is-scrubbed) .project:first-child .project__media {
     width: var(--card-width-active);
-    border-radius: 8px;
-    box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.05);
 }
 
-.project.is-active .project__details {
+body:not(.is-scrubbed) .project:first-child .project__details {
     opacity: 1;
     visibility: visible;
     transform: translateY(-50%);
-    transition:
-        opacity 300ms ease 150ms,
-        transform 300ms ease 150ms,
-        visibility 0s;
 }
 
-.no-transition,
-.no-transition * {
-    transition: none !important;
+/* Scroll-linked mode (home.js): list pinned, page scroll drives it -------- */
+
+.is-scrubbed .work {
+    position: fixed;
+    inset: 0;
+    padding-left: var(--list-x);
+    overflow: hidden;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .project__media,
-    .project__details {
-        transition: none !important;
-    }
+.is-scrubbed .project-list {
+    position: relative;
+    display: block;
+    padding: 0;
+}
+
+.is-scrubbed .project {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+.is-scrubbed .project__details {
+    transition: none;
+}
+
+.is-scrubbed .project.is-active .project__media {
+    border-radius: 8px;
+}
+
+html:has(.is-scrubbed) {
+    scroll-snap-type: y proximity;
+}
+
+.scroll-track__stop {
+    height: var(--pitch);
+    scroll-snap-align: start;
 }
