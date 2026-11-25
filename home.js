@@ -23,8 +23,6 @@
     const W_MIN = 354;          // card width at rest
     const W_MAX = 528;          // card width at the centre
     const ASPECT = 2926 / 1732;
-    const FADE_START = 0.04;    // distance from centre (in projects) where details start to fade
-    const FADE_LENGTH = 0.18;   // distance over which they fade out completely
     const LAPS = 7;             // laps of the loop in the scroll track
     const LAP = PITCH * N;
 
@@ -117,9 +115,7 @@
             items[idx].style.transform = `translate3d(0, ${(ys[i] - h / 2).toFixed(2)}px, 0)`;
             medias[idx].style.width = widthAt(d).toFixed(2) + 'px';
 
-            // Details are fully visible only right at the centre and fade out
-            // quickly (within ~20% of a project's scroll), so they barely move while visible.
-            const reveal = 1 - smooth(clamp01((Math.abs(d) - FADE_START) / FADE_LENGTH));
+            const reveal = smooth(clamp01((g - 0.55) / 0.45));
             const det = details[idx];
             det.style.opacity = reveal.toFixed(3);
             det.style.visibility = reveal > 0.01 ? 'visible' : 'hidden';
