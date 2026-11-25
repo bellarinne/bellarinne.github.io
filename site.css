@@ -157,12 +157,6 @@
     box-shadow: 0 4px 7.9px rgba(0, 0, 0, 0.14);
 }
 
-/* Same photo files and white border as the about page, so the photos look
-   identical when they fly between the two pages. */
-.collage__bordered {
-    border: 3px solid #fff;
-}
-
 .collage__photo-52 {               /* beach */
     left: 125.24px;
     bottom: -21.76px;
