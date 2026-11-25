@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Bella Rinne</title>
+    <meta name="description" content="Behind the designs is a writer, actually. About Bella Rinne, UX generalist and library scholar-ish.">
+    <script>
+        // Hide the photos until about.js flies them out of the folder (skipped for reduced motion).
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('intro');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600&family=Jaini&family=Jaini+Purva&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="about.css">
+    <script src="about.js" defer></script>
+</head>
+
+<body class="about">
+    <aside class="sidebar">
+        <a class="sidebar__name" href="index.html" aria-label="Bella Rinne — back to work">Bella Rinne</a>
+
+        <div class="sidebar__bio">
+            <p>UX generalist, design systems enthusiast, cartoon hobbyist, and library scholar-ish.</p>
+            <p>Currently in New York City, helping fans experience more live at <strong class="sidebar__employer">SeatGeek.</strong></p>
+        </div>
+
+        <nav class="sidebar__links" aria-label="Contact">
+            <a class="sidebar__link" href="https://read.cv/bellarinne" target="_blank" rel="noopener">Resume<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="sidebar__link" href="https://www.linkedin.com/in/bella-rinne/" target="_blank" rel="noopener">LinkedIn<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="sidebar__link" href="mailto:bella.rinne@columbia.edu">Email<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </nav>
+    </aside>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- The folder, split into back and front so the photos can slide out between them -->
+    <img class="folder-layer folder-layer--back collage__item collage__folder-back" src="assets/collage/folder-back.webp" alt="" aria-hidden="true">
+    <img class="folder-layer folder-layer--front collage__item collage__folder-front" src="assets/collage/folder-front.webp" alt="" aria-hidden="true">
+
+    <main class="about-page">
+        <section class="about-hero" aria-labelledby="about-title">
+            <h1 class="about-title about-reveal" id="about-title">Behind the designs is a writer, actually.</h1>
+
+            <svg class="about-hero__lines about-reveal" viewBox="0 0 1016 1160" aria-hidden="true">
+                <!-- polaroid corner → logo → centre photo corner; ends stop short of each logo -->
+                <line x1="431.4" y1="359.2" x2="96.0" y2="504.9"/>
+                <line x1="92.3" y1="531.9" x2="332.9" y2="730.5"/>
+                <line x1="431.4" y1="359.2" x2="218.8" y2="500.9"/>
+                <line x1="211.1" y1="537.3" x2="332.9" y2="730.5"/>
+                <line x1="431.4" y1="359.2" x2="305.5" y2="496.2"/>
+                <line x1="293.2" y1="540.7" x2="332.9" y2="730.5"/>
+                <line x1="586.6" y1="359.2" x2="717.1" y2="498.3"/>
+                <line x1="728.9" y1="542.6" x2="684.2" y2="731.2"/>
+                <line x1="586.6" y1="359.2" x2="816.4" y2="503.5"/>
+                <line x1="823.2" y1="538.4" x2="684.2" y2="731.2"/>
+                <line x1="586.6" y1="359.2" x2="938.3" y2="507.2"/>
+                <line x1="941.7" y1="533.2" x2="684.2" y2="731.2"/>
+            </svg>
+
+            <figure class="about-photo about-photo--polaroid" data-from="polaroid">
+                <img class="about-photo__img" src="assets/collage/polaroid-photo.webp" alt="Bella in yellow-tinted sunglasses">
+                <img class="about-polaroid__script about-reveal" src="assets/about/about-bella-script.webp" alt="About Bella">
+            </figure>
+
+            <ul class="about-logos" aria-label="Where I've worked">
+                <li class="about-logo about-reveal" style="--cx: 72.2px; --cy: 515.3px;"><img src="assets/logos/seatgeek.svg" width="51" height="36" alt="SeatGeek"></li>
+                <li class="about-logo about-reveal" style="--cx: 197.2px; --cy: 515.3px;"><img src="assets/logos/adobe.svg" width="39" height="38" alt="Adobe"></li>
+                <li class="about-logo about-reveal" style="--cx: 287.9px; --cy: 515.3px;"><img src="assets/logos/nyt.svg" width="32" height="40" alt="The New York Times"></li>
+                <li class="about-logo about-reveal" style="--cx: 734.9px; --cy: 517.3px;"><img src="assets/logos/symbotic.svg" width="39" height="39" alt="Symbotic"></li>
+                <li class="about-logo about-reveal" style="--cx: 838.4px; --cy: 517.3px;"><img src="assets/logos/tesla.svg" width="39" height="39" alt="Tesla"></li>
+                <li class="about-logo about-reveal" style="--cx: 962.3px; --cy: 517.3px;"><img src="assets/logos/wayfair.svg" width="39" height="39" alt="Wayfair"></li>
+            </ul>
+
+            <div class="about-copy about-copy--intro about-reveal">
+                <p>Studying English Literature made me a strong storyteller. I love writing compelling user narratives that demonstrate the value of my designs.</p>
+                <p>Since starting my UX career in 2022, I’ve learned to prioritize a design process that is founded on empathy — designing products that are, of course, visually appealing, and also consider one’s emotional journey. I believe good experience design meets users wherever they are.</p>
+            </div>
+
+            <img class="about-photo about-photo--horse" data-from="photo-54" src="assets/collage/image-54.webp" alt="“Reality Awaits” poster of a cowboy on a rearing horse">
+            <img class="about-photo about-photo--beach" data-from="photo-52" src="assets/collage/image-52.webp" alt="Bella standing in the surf at the beach">
+            <img class="about-photo about-photo--graduation" data-from="photo-51" src="assets/collage/image-51.webp" alt="Bella in graduation robes in front of a stone archway">
+            <!-- TODO: stand-in cut from the mockup screenshot; replace with the real photo export -->
+            <img class="about-photo about-photo--statue" data-from="statue" src="assets/about/statue-placeholder.webp" alt="Bella smiling beside a bronze bust">
+            <img class="about-photo about-photo--stage" data-from="photo-50" src="assets/collage/image-50.webp" alt="Bella seated at a table on stage during a talk">
+            <img class="about-photo about-photo--building" data-from="photo-53" src="assets/collage/image-53.webp" alt="Pratt Institute building with yellow banners">
+
+            <div class="about-copy about-copy--outro about-reveal">
+                <p>Besides design, I’m an avid illustrator and cartoonist, and pursuing a Master’s in Library and Information Science, with a concentration in User Experience, at Pratt Institute.</p>
+                <p>I also enjoy reading about Romantic and Modernist poets.</p>
+            </div>
+        </section>
+
+        <hr class="about-rule">
+
+        <section class="about-section" aria-labelledby="skills-title">
+            <h2 class="about-title" id="skills-title">I’m especially good at…</h2>
+            <div class="about-grid">
+                <!-- TODO: add the copy for each of these -->
+                <details class="disclosure">
+                    <summary>Design systems and style guides<svg class="disclosure__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+                    <div class="disclosure__body"><p>Details coming soon.</p></div>
+                </details>
+                <details class="disclosure">
+                    <summary>Complex data dashboards<svg class="disclosure__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+                    <div class="disclosure__body"><p>Details coming soon.</p></div>
+                </details>
+            </div>
+        </section>
+
+        <hr class="about-rule">
+
+        <section class="about-section" aria-labelledby="writing-title">
+            <h2 class="about-title" id="writing-title">Selected writing</h2>
+            <!-- TODO: link each piece (href="#" for now) -->
+            <ul class="about-grid writing-list">
+                <li><a class="writing-card" href="#"><span>Rhyme’s construction of subconscious narrative in “Grongar Hill” <span class="writing-card__year">(2025)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Interrogating the ‘god-terms’ we write: a scaffolded solution for students <span class="writing-card__year">(2025)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Author’s Note: Speak to Me, Muse, of the Dual BA <span class="writing-card__year">(2025)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>The imposition of social control in dystopia / the necessity of community in queer narratives (2 hour exam) <span class="writing-card__year">(2023)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Translating indigenous oral tradition to modern storytelling in Leslie Marmon Silko’s Man in the Rainclouds <span class="writing-card__year">(2022)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                <li><a class="writing-card" href="#"><span>Nature as a vessel for retrospective self-realization in Alison Bechdel’s Fun Home <span class="writing-card__year">(2021)</span></span><svg class="writing-card__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            </ul>
+        </section>
+    </main>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="icon-arrow" viewBox="0 0 14 14"><path fill="currentColor" d="M10.5 4.1125C10.5 3.95779 10.4385 3.80942 10.3291 3.70002C10.2197 3.59062 10.0714 3.52917 9.91667 3.52917L5.25 3.5C5.09529 3.5 4.94692 3.56146 4.83752 3.67085C4.72812 3.78025 4.66667 3.92862 4.66667 4.08333C4.66667 4.23804 4.72812 4.38642 4.83752 4.49581C4.94692 4.60521 5.09529 4.66667 5.25 4.66667H8.49333L3.66917 9.5025C3.61449 9.55673 3.5711 9.62125 3.54148 9.69233C3.51187 9.76341 3.49662 9.83966 3.49662 9.91667C3.49662 9.99367 3.51187 10.0699 3.54148 10.141C3.5711 10.2121 3.61449 10.2766 3.66917 10.3308C3.72339 10.3855 3.78791 10.4289 3.859 10.4585C3.93008 10.4881 4.00633 10.5034 4.08333 10.5034C4.16034 10.5034 4.23659 10.4881 4.30767 10.4585C4.37875 10.4289 4.44327 10.3855 4.4975 10.3308L9.33333 5.495V8.75C9.33333 8.90471 9.39479 9.05308 9.50419 9.16248C9.61358 9.27187 9.76196 9.33333 9.91667 9.33333C10.0714 9.33333 10.2197 9.27187 10.3291 9.16248C10.4385 9.05308 10.5 8.90471 10.5 8.75V4.1125Z"/></symbol>
+    </svg>
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* ==========================================================================
+   About page — source: Figma "Portfolio" › About (1440 wide)
+   The hero is an art-directed collage, so its pieces are placed absolutely
+   on a 1016px-wide stage. Positions are taken from the Figma frame.
+   ========================================================================== */
+
+:root {
+    --divider-x: 335px;
+    --content-x: 363px;
+    --stage-width: 1016px;
+    --line-color: rgba(78, 90, 109, 0.28);
+}
+
+body.about {
+    overflow-x: hidden;
+}
+
+/* The page sits between the folder's back (z 1) and front (z 3), so the
+   photos can slide out from inside the folder. */
+.about .sidebar { z-index: 4; }
+
+.folder-layer {
+    position: fixed;
+    pointer-events: none;
+}
+
+.folder-layer--back  { z-index: 1; }
+.folder-layer--front { z-index: 3; }
+
+.about-page {
+    position: relative;
+    z-index: 2;
+    width: calc(var(--content-x) + var(--stage-width));
+    padding-left: var(--content-x);
+    padding-bottom: 120px;
+}
+
+.about-title {
+    font-family: "Jaini Purva", var(--font-display);
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+/* Hero ------------------------------------------------------------------- */
+
+.about-hero {
+    position: relative;
+    width: var(--stage-width);
+    height: 1160px;
+}
+
+.about-hero > .about-title {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+}
+
+.about-hero__lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.about-hero__lines line {
+    stroke: var(--line-color);
+    stroke-width: 1;
+}
+
+.about-photo {
+    --r: 0deg;
+    position: absolute;
+    margin: 0;
+    display: block;
+    object-fit: cover;
+    rotate: var(--r);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.about-photo--polaroid {
+    left: 431.4px;
+    top: 126.9px;
+    width: 155.2px;
+    height: 232.3px;
+    background: #f7f5f4;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.about-photo--polaroid .about-photo__img {
+    position: absolute;
+    left: 8.2%;
+    top: 5.5%;
+    width: 83.6%;
+    height: 68.9%;
+    object-fit: cover;
+}
+
+.about-polaroid__script {
+    position: absolute;
+    left: 50%;
+    top: 194px;
+    width: 97px;
+    margin-left: -48.5px;          /* centred without translate, which the fade-in animates */
+}
+
+.about-photo--horse      { left: 129.8px; top: 712.5px; width: 138.6px; height: 138.6px; }
+.about-photo--beach      { left: 112.2px; top: 880.4px; width: 187.4px; height: 144.4px; }
+.about-photo--graduation { left: 338.7px; top: 726.3px; width: 157.2px; height: 226.3px; --r: -3deg; }
+.about-photo--statue     { left: 507.4px; top: 726.6px; width: 171px;   height: 225.6px; --r: 3deg; border: 4px solid #fff; }
+.about-photo--stage      { left: 757.4px; top: 714.4px; width: 112.2px; height: 151.3px; }
+.about-photo--building   { left: 710.5px; top: 890px;   width: 206px;   height: 125px; }
+
+.about-logos {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.about-logo {
+    position: absolute;
+    left: var(--cx);
+    top: var(--cy);
+    translate: -50% -50%;
+}
+
+.about-logo img {
+    display: block;
+    height: 39px;
+    width: auto;
+}
+
+.about-copy {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+}
+
+.about-copy p {
+    line-height: 18.5px;
+}
+
+.about-copy--intro { left: 392.5px; top: 420px; width: 232px; }
+.about-copy--outro { left: 383.5px; top: 988px; width: 250px; }
+
+/* Sections below the hero ----------------------------------------------- */
+
+.about-rule {
+    width: var(--stage-width);
+    margin: 41px 0 0;
+    border: 0;
+    border-top: 0.5px solid rgba(78, 90, 109, 0.4);
+}
+
+.about-section {
+    width: var(--stage-width);
+    padding-top: 57px;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+}
+
+.about-section + .about-rule {
+    margin-top: 54px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 33px 32px;
+    align-items: start;
+}
+
+.disclosure {
+    border: 0.5px solid var(--color-border);
+}
+
+.disclosure summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 40px;
+    padding: 0 10px;
+    color: var(--color-primary);
+    cursor: pointer;
+    list-style: none;
+}
+
+.disclosure summary::-webkit-details-marker { display: none; }
+
+.disclosure__chevron {
+    flex: none;
+    color: var(--color-tag-text);
+    transition: rotate 200ms ease;
+}
+
+.disclosure[open] .disclosure__chevron { rotate: 180deg; }
+
+.disclosure__body {
+    padding: 0 10px 12px;
+}
+
+.disclosure summary:focus-visible,
+.writing-card:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.writing-list li { display: flex; }
+
+.writing-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 54px;
+    padding: 8px 10px;
+    border: 0.5px solid var(--color-border);
+    color: var(--color-primary);
+    line-height: 18px;
+    transition: border-color 150ms ease;
+}
+
+.writing-card:hover,
+.writing-card:focus-visible {
+    color: var(--color-primary);
+    border-color: var(--color-secondary);
+}
+
+.writing-card__year {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.writing-card__arrow {
+    flex: none;
+    color: var(--color-border);
+    transition: color 150ms ease;
+}
+
+.writing-card:hover .writing-card__arrow { color: var(--color-secondary); }
+
+/* Intro: hidden until about.js runs it (html.intro is set in <head>).
+   Failsafe: if the script never runs, everything shows after 2.5s. */
+
+.intro .about-photo,
+.intro .about-reveal {
+    opacity: 0;
+    animation: intro-failsafe 0s linear 2.5s forwards;
+}
+
+@keyframes intro-failsafe {
+    to { opacity: 1; }
+}
