@@ -59,7 +59,7 @@ body.home {
 .project__details {
     position: absolute;
     top: 50%;
-    left: calc(var(--card-width-active) + var(--project-gap));   /* fixed spot: doesn't follow the growing card */
+    left: calc(100% + var(--project-gap));   /* rides along with the card's right edge */
     display: flex;
     flex-direction: column;
     gap: 24px;

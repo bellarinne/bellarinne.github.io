@@ -23,6 +23,8 @@
     const W_MIN = 354;          // card width at rest
     const W_MAX = 528;          // card width at the centre
     const ASPECT = 2926 / 1732;
+    const UNFOLD_START = 0.3;   // how grown a card is (0-1) when its details start to unfold
+    const UNFOLD_DISTANCE = 48; // px the details slide out from behind the image
     const LAPS = 7;             // laps of the loop in the scroll track
     const LAP = PITCH * N;
 
@@ -115,10 +117,16 @@
             items[idx].style.transform = `translate3d(0, ${(ys[i] - h / 2).toFixed(2)}px, 0)`;
             medias[idx].style.width = widthAt(d).toFixed(2) + 'px';
 
-            const reveal = smooth(clamp01((g - 0.55) / 0.45));
+            // Details unfold from behind the image's right edge as the card grows:
+            // they ride along with that edge, slide out from under it and are
+            // clipped where they're still tucked behind the image.
+            const unfold = smooth(clamp01((g - UNFOLD_START) / (1 - UNFOLD_START)));
+            const tucked = UNFOLD_DISTANCE * (1 - unfold);
             const det = details[idx];
-            det.style.opacity = reveal.toFixed(3);
-            det.style.visibility = reveal > 0.01 ? 'visible' : 'hidden';
+            det.style.opacity = Math.min(1, unfold * 1.6).toFixed(3);
+            det.style.transform = `translate(${(-tucked).toFixed(2)}px, -50%)`;
+            det.style.clipPath = `inset(-20px -20px -20px ${tucked.toFixed(2)}px)`;
+            det.style.visibility = unfold > 0.01 ? 'visible' : 'hidden';
             items[idx].classList.toggle('is-active', g > 0.5);
         }
     }
