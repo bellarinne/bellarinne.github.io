@@ -145,7 +145,7 @@ body.home {
     width: 122.55px;
     height: 163.87px;
     --r: 5.09deg;
-    --hx: 3px; --hy: -5px; --hr: 2deg;
+    --hx: 6px; --hy: -10px; --hr: 0deg;
     box-shadow: 1px -1px 2px rgba(0, 0, 0, 0.03);
 }
 
@@ -155,7 +155,7 @@ body.home {
     width: 127.05px;
     height: 169.9px;
     --r: 2.15deg;
-    --hx: 5px; --hy: -3px; --hr: 0deg;
+    --hx: 10px; --hy: -6px; --hr: -1.5deg;
     transition-delay: 30ms;
     box-shadow: -2px 1px 1.1px rgba(0, 0, 0, 0.4), -2px 2px 4.3px rgba(0, 0, 0, 0.38);
 }
@@ -167,7 +167,7 @@ body.home {
     height: 112.18px;
     background: #fff;
     --r: 5deg;
-    --hx: 6px; --hy: -2px; --hr: 1deg;
+    --hx: 12px; --hy: -4px; --hr: -1deg;
     transition-delay: 60ms;
     box-shadow: 0 4px 7.9px rgba(0, 0, 0, 0.14);
 }
@@ -187,7 +187,7 @@ body.home {
     width: 161.64px;
     height: 125.21px;
     --r: 6deg;
-    --hx: 6px; --hy: -3px; --hr: 3deg;
+    --hx: 12px; --hy: -6px; --hr: 1deg;
     transition-delay: 90ms;
     box-shadow: -2px -2px 3.9px rgba(0, 0, 0, 0.1);
 }
@@ -198,7 +198,7 @@ body.home {
     width: 166px;
     height: 101.52px;
     --r: -1.92deg;
-    --hx: 2px; --hy: -4px; --hr: 0.5deg;
+    --hx: 4px; --hy: -9px; --hr: 1.5deg;
     transition-delay: 15ms;
     box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.39);
 }
@@ -209,7 +209,7 @@ body.home {
     width: 76.02px;
     height: 76.02px;
     --r: -4deg;
-    --hx: 5px; --hy: -2px; --hr: -1deg;
+    --hx: 10px; --hy: -4px; --hr: 2deg;
     transition-delay: 45ms;
     box-shadow: 1px 1px 1.1px rgba(0, 0, 0, 0.13), 2px -1px 3.9px rgba(0, 0, 0, 0.25);
 }
