@@ -28,7 +28,6 @@
         'photo-50': { left: 45.54,  bottom: 180.02, w: 122.55, h: 163.87, r: 5.09 },
         'statue':   { left: 70,     bottom: 110,    w: 130,    h: 175,    r: -4 },  // tucked fully inside
     };
-    const bakedTilt = { 'photo-51': -3 };                       // degrees already in the image
 
     const rand = (min, max) => min + Math.random() * (max - min);
     const photos = Array.from(stage.querySelectorAll('.about-photo[data-from]'));
@@ -38,7 +37,11 @@
     // Where a photo sits on the page, and where it sits in the folder, in stage px.
     function placeOnPage(el) {
         const cs = getComputedStyle(el);
-        return { left: parseFloat(cs.left), top: parseFloat(cs.top), w: el.offsetWidth, r: parseFloat(cs.getPropertyValue('--r')) || 0 };
+        return {
+            left: parseFloat(cs.left), top: parseFloat(cs.top),
+            w: el.offsetWidth, h: el.offsetHeight,
+            r: parseFloat(cs.getPropertyValue('--r')) || 0,
+        };
     }
     function placeInFolder(el) {
         const pose = folderPoses[el.dataset.from];
@@ -46,12 +49,11 @@
         return {
             left: pose.left - box.left,
             top: window.innerHeight - pose.bottom - pose.h - box.top,
-            w: pose.w,
-            r: pose.r - (bakedTilt[el.dataset.from] || 0),   // so it matches its folder angle
+            w: pose.w, h: pose.h, r: pose.r,
         };
     }
     const frame = (p, extra = {}) => ({
-        left: p.left + 'px', top: p.top + 'px', width: p.w + 'px',   // height follows the image's aspect
+        left: p.left + 'px', top: p.top + 'px', width: p.w + 'px', height: p.h + 'px',
         rotate: p.r + 'deg', ...extra,
     });
 
@@ -69,7 +71,7 @@
             const mid = {
                 left: (start.left + end.left) / 2 + rand(-30, 30),
                 top: Math.min(start.top, end.top) + Math.abs(start.top - end.top) * 0.35 - rand(30, 90),
-                w: (start.w + end.w) / 2,
+                w: (start.w + end.w) / 2, h: (start.h + end.h) / 2,
                 r: end.r + rand(-9, 9),
             };
             const duration = rand(950, 1350);
@@ -131,7 +133,7 @@
             const mid = {
                 left: (start.left + end.left) / 2,
                 top: Math.min(start.top, end.top) + Math.abs(start.top - end.top) * 0.4 - 40,
-                w: (start.w + end.w) / 2,
+                w: (start.w + end.w) / 2, h: (start.h + end.h) / 2,
                 r: (start.r + end.r) / 2,
             };
             const duration = 750;

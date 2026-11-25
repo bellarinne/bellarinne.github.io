@@ -19,10 +19,18 @@ body.about {
    photos can slide out from inside the folder. */
 .about .sidebar { z-index: 4; }
 
-/* Folder back and front sit exactly where they do on the home page
-   (positions come from site.css), but as fixed layers of their own. */
+/* The folder's front lines up exactly with the home page's folder front
+   (left -2px, bottom 0, 282px wide there); back and front are fixed layers. */
 .folder-layer {
     position: fixed;
+}
+
+.folder-art {
+    position: fixed;
+    left: -2.16px;
+    bottom: -1.46px;
+    width: 287.7px;
+    height: 313px;
 }
 
 .folder-layer--back {
@@ -34,14 +42,9 @@ body.about {
     z-index: 3;
     left: 0;
     bottom: 0;
-    width: 282px;
-    height: 306px;
+    width: 252px;
+    height: 296px;
     cursor: pointer;
-}
-
-.folder-link .collage__folder-front {
-    left: -2px;
-    bottom: 0;
 }
 
 .folder-link:focus-visible {
@@ -96,30 +99,33 @@ body.about {
     stroke-width: 1;
 }
 
-/* The polaroid and the graduation photo come with their frame/border (and
-   tilt) built in; the others get a white border and tilt below. */
+/* Photos are placed by their top-left corner on the 1016px stage; tilts are
+   set with --r. */
 .about-photo {
     position: absolute;
     display: block;
-    height: auto;                  /* keeps the aspect while the intro animates width */
+    height: auto;
+    object-fit: cover;             /* the intro sizes each photo to its exact spot in the folder */
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12));
 }
 
-.about-photo--polaroid   { left: 430.5px; top: 125.5px; }
-.about-photo--horse      { left: 129.6px; top: 712.3px; width: 139px; }
-.about-photo--beach      { left: 110.4px; top: 878.6px; width: 191px; }
-.about-photo--graduation { left: 322.3px; top: 719.4px; }
-.about-photo--statue     { left: 507.4px; top: 726.4px; width: 171px; --r: 3deg; border-width: 4px; }
-.about-photo--stage      { left: 755.5px; top: 712.5px; width: 116px; }
-.about-photo--building   { left: 708px;   top: 888px;   width: 211px; }
+/* z-index = stacking order inside the folder (same as the home page) */
+.about-photo--polaroid   { left: 430.5px; top: 125.5px; z-index: 3; }
+.about-photo--horse      { left: 129.6px; top: 712.3px; width: 139px; z-index: 6; }
+.about-photo--beach      { left: 110.4px; top: 878.6px; width: 191px; z-index: 4; }
+.about-photo--graduation { left: 331.8px; top: 725px;   width: 171px; z-index: 2; --r: -3deg; }
+.about-photo--statue     { left: 507.4px; top: 726.4px; width: 171px; z-index: 1; --r: 3deg; }
+.about-photo--stage      { left: 755.5px; top: 712.5px; width: 116px; z-index: 1; }
+.about-photo--building   { left: 708px;   top: 888px;   width: 211px; z-index: 5; }
 
-/* These exports have no border or tilt of their own, so add them here */
+.about-photo { rotate: var(--r, 0deg); }
+
+/* Exports without a white border of their own get one here */
 .about-photo--beach,
 .about-photo--statue,
 .about-photo--stage,
 .about-photo--building {
     border: 3px solid #fff;
-    rotate: var(--r, 0deg);
 }
 
 .about-photo--statue { border-width: 4px; }
