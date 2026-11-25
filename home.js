@@ -17,8 +17,8 @@
     const N = items.length;
     if (!N) return;
 
-    const PITCH = 400;          // px of scroll per project (higher = less sensitive)
-    const EASE = 0.1;           // how quickly the list catches up with the scroll each frame (lower = more resistance)
+    const PITCH = 340;          // px of scroll per project (higher = less sensitive)
+    const EASE = 0.14;          // how quickly the list catches up with the scroll each frame (lower = more resistance)
     const GAP = 32;             // px between cards
     const W_MIN = 354;          // card width at rest
     const W_MAX = 528;          // card width at the centre
