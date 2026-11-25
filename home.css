@@ -103,6 +103,20 @@ body.home {
     color: var(--accent, var(--color-heading));
 }
 
+.project__number {                 /* "01"–"06"; off until body has .has-title-numbers */
+    display: none;
+    margin-right: 0.3em;
+    opacity: 0.35;                 /* the title's own colour, tinted */
+}
+
+.has-title-numbers {
+    --details-width: 400px;        /* 45px wider so every title stays on two lines with its number */
+}
+
+.has-title-numbers .project__number {
+    display: inline;
+}
+
 .project__summary {
     color: var(--color-primary);
 }
