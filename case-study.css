@@ -89,14 +89,20 @@
 /* 5 · Design process (Figma Slides embed) ------------------------------- */
 
 .cs-deck {
-    aspect-ratio: 16 / 9;
+    --deck-footer: 48px;           /* Figma's bottom bar (file name, slide arrows) */
+    position: relative;
+    height: 0;
+    padding-bottom: calc(56.25% + var(--deck-footer));   /* 16:9 slide + the bar */
     overflow: hidden;
-    border: 0.5px solid var(--color-border);
+    outline: 0.5px solid var(--color-border);            /* outline, not border, so the frame keeps exactly 16:9 */
+    outline-offset: -0.5px;
     border-radius: 8px;
     background: var(--color-secondary-background);
 }
 
 .cs-deck iframe {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
