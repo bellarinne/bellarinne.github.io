@@ -1,12 +1,12 @@
 /* ==========================================================================
    Case study pages — shared template.
    Each case study sets its colour on <body> with --accent (the same colour
-   as its title on the home page). Content column starts where the home
-   page's project list does and runs to 32px from the right edge.
+   as its title on the home page). Content column sits 32px from the
+   divider and 32px from the right edge.
    ========================================================================== */
 
 :root {
-    --content-x: 425.5px;          /* same as the home list (divider + 70) */
+    --content-x: calc(var(--divider-x) + var(--page-padding));   /* 32px from the divider, matching the 32px on the right */
     --cs-heading: #4a648f;         /* About / Deliverables headlines */
     --cs-rule: rgba(78, 90, 109, 0.4);
 }
@@ -26,6 +26,13 @@
 
 .cs-label {
     color: var(--color-secondary);
+}
+
+/* The heading's tall line box adds space above its letters, so the label sits
+   8px closer to look even with the gap below the heading (16 - 8 = 8px). */
+.cs-label + .cs-title,
+.cs-label + .cs-headline {
+    margin-top: -8px;
 }
 
 .cs-section {
