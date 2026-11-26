@@ -18,7 +18,7 @@
     padding: 40px var(--page-padding) 48px 0;
 }
 
-/* Body copy on this page: 20px leading (8pt grid friendly), comfortable line length */
+/* Body copy on this page: 20px leading (8pt grid friendly) */
 .case-study-page p {
     line-height: 20px;
     text-wrap: pretty;             /* avoids a single orphaned word on the last line */
@@ -35,22 +35,13 @@
 }
 
 .cs-section + .cs-section {
-    margin-top: 56px;
-    padding-top: 56px;
+    margin-top: 48px;
+    padding-top: 48px;
     border-top: 0.5px solid var(--cs-rule);
 }
 
 .cs-headline {
-    max-width: 880px;
     color: var(--cs-heading);
-    text-wrap: balance;            /* even line lengths, no one-word last line */
-}
-
-/* Paragraph under a headline or title: a little more air (16 + 8 = 24px) and a readable measure */
-.cs-headline + p,
-.cs-title + p {
-    max-width: 640px;
-    margin-top: 8px;
 }
 
 /* 1 · Intro --------------------------------------------------------------- */
@@ -65,7 +56,6 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px 32px;
-    max-width: 920px;
     margin: 0;
 }
 
