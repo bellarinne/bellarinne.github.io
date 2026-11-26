@@ -134,9 +134,9 @@
 .cs-deliverable {
     display: grid;
     grid-template-columns: 272px minmax(0, 640px);
-    justify-content: space-between;
+    justify-content: center;       /* text sits 32px from its image; the pair is centred */
     align-items: center;
-    gap: 48px;
+    gap: 32px;
 }
 
 .cs-deliverable figure { margin: 0; }
@@ -153,6 +153,10 @@
 }
 
 .cs-deliverable:nth-child(even) .cs-deliverable__text { order: 2; }
+
+.cs-deliverable__text {
+    text-align: center;
+}
 
 .cs-deliverable__title {
     font-weight: 600;
