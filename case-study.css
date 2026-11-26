@@ -14,7 +14,8 @@
 .case-study-page {
     position: relative;
     z-index: 2;
-    padding: 46px var(--page-padding) 56px var(--content-x);
+    margin-left: var(--content-x);   /* margin, not padding, so the page doesn't cover the folder */
+    padding: 46px var(--page-padding) 56px 0;
 }
 
 .cs-label {
@@ -32,16 +33,6 @@
     padding-top: 56px;
     border-top: 0.5px solid var(--cs-rule);
 }
-
-/* No rule between the intro, facts and hero: they read as one block */
-.cs-section--facts,
-.cs-section--hero {
-    margin-top: 0 !important;
-    border-top: 0 !important;
-}
-
-.cs-section--facts { padding-top: 48px !important; }
-.cs-section--hero  { padding-top: 48px !important; }
 
 .cs-headline {
     max-width: 980px;
@@ -98,7 +89,7 @@
 /* 5 · Design process (Figma Slides embed) ------------------------------- */
 
 .cs-deck {
-    aspect-ratio: 16 / 9.4;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border: 0.5px solid var(--color-border);
     border-radius: 8px;
@@ -112,12 +103,6 @@
     border: 0;
 }
 
-.cs-deck__placeholder {
-    display: grid;
-    place-items: center;
-    height: 100%;
-    color: var(--color-text-muted);
-}
 
 /* 6 · Deliverables ------------------------------------------------------- */
 

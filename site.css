@@ -44,6 +44,11 @@
     color: var(--color-secondary);
 }
 
+.sidebar__name:hover,
+.sidebar__name:focus-visible {
+    color: var(--color-link-hover);   /* lighter on hover, like the other links */
+}
+
 .sidebar__links {
     display: flex;
     gap: 8px;
