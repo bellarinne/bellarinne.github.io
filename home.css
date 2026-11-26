@@ -117,6 +117,27 @@ body.home {
     display: inline;
 }
 
+/* Case study links: the whole card is clickable, and so is the title */
+.project__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+.project__title a,
+.project__title a:hover,
+.project__title a:focus-visible {
+    font: inherit;
+    color: inherit;
+}
+
+.project__title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+}
+
 .project__summary {
     color: var(--color-primary);
 }
