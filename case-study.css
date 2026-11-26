@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Case study pages — shared template.
+   Each case study sets its colour on <body> with --accent (the same colour
+   as its title on the home page). Content column starts where the home
+   page's project list does and runs to 32px from the right edge.
+   ========================================================================== */
+
+:root {
+    --content-x: 425.5px;          /* same as the home list (divider + 70) */
+    --cs-heading: #4a648f;         /* About / Deliverables headlines */
+    --cs-rule: rgba(78, 90, 109, 0.4);
+}
+
+.case-study-page {
+    position: relative;
+    z-index: 2;
+    padding: 46px var(--page-padding) 56px var(--content-x);
+}
+
+.cs-label {
+    color: var(--color-secondary);
+}
+
+.cs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cs-section + .cs-section {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 0.5px solid var(--cs-rule);
+}
+
+/* No rule between the intro, facts and hero: they read as one block */
+.cs-section--facts,
+.cs-section--hero {
+    margin-top: 0 !important;
+    border-top: 0 !important;
+}
+
+.cs-section--facts { padding-top: 48px !important; }
+.cs-section--hero  { padding-top: 48px !important; }
+
+.cs-headline {
+    max-width: 980px;
+    color: var(--cs-heading);
+}
+
+/* 1 · Intro --------------------------------------------------------------- */
+
+.cs-title {
+    color: var(--accent, var(--color-heading));
+}
+
+/* 2 · Fast facts ---------------------------------------------------------- */
+
+.cs-facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 32px;
+    max-width: 920px;
+    margin: 0;
+}
+
+.cs-facts dt {
+    margin-bottom: 8px;
+    color: var(--color-secondary);
+}
+
+.cs-facts dd {
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.cs-facts dd p + p { margin-top: 2px; }
+
+/* 3 · Hero (same card treatment as the home page) ------------------------- */
+
+.cs-hero {
+    aspect-ratio: 2926 / 1732;
+    overflow: hidden;
+    border: 0.5px solid var(--color-border);
+    border-radius: 8px;
+    background: rgba(225, 225, 225, 0.5);
+}
+
+.cs-hero img,
+.cs-hero video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(6px 6px 40px rgba(0, 0, 0, 0.05));
+}
+
+/* 5 · Design process (Figma Slides embed) ------------------------------- */
+
+.cs-deck {
+    aspect-ratio: 16 / 9.4;
+    overflow: hidden;
+    border: 0.5px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-secondary-background);
+}
+
+.cs-deck iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.cs-deck__placeholder {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    color: var(--color-text-muted);
+}
+
+/* 6 · Deliverables ------------------------------------------------------- */
+
+.cs-deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+    margin-top: 48px;
+}
+
+.cs-deliverable {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 637px);
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+}
+
+.cs-deliverable figure { margin: 0; }
+
+.cs-deliverable img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Every other row flips: image left, text right */
+.cs-deliverable:nth-child(even) {
+    grid-template-columns: minmax(0, 637px) 270px;
+}
+
+.cs-deliverable:nth-child(even) .cs-deliverable__text { order: 2; }
+
+.cs-deliverable__title {
+    font-weight: 600;
+}
+
+.cs-deliverable__text p + p { margin-top: 8px; }
+
+/* End --------------------------------------------------------------------- */
+
+.cs-end {
+    margin-top: 96px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--cs-rule);
+    text-align: center;
+    color: var(--color-secondary);
+}

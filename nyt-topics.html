@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizing news with ‘Topics in Onboarding’ — Bella Rinne</title>
+    <meta name="description" content="Case study: serving New York Times readers tailored content with a new onboarding feature.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600&family=Jaini&family=Jaini+Purva&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="case-study.css">
+    <script src="site.js" defer></script>
+</head>
+
+<!-- --accent = this case study's colour (same as its title on the home page) -->
+<body class="case-study" style="--accent: #292b35">
+    <aside class="sidebar">
+        <a class="sidebar__name" href="index.html" aria-label="Bella Rinne — back to work">Bella Rinne</a>
+
+        <nav class="sidebar__links" aria-label="Contact">
+            <a class="sidebar__link" href="https://read.cv/bellarinne" target="_blank" rel="noopener">Resume<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="sidebar__link" href="https://www.linkedin.com/in/bella-rinne/" target="_blank" rel="noopener">LinkedIn<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="sidebar__link" href="mailto:bella.rinne@columbia.edu">Email<svg class="sidebar__arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        </nav>
+
+        <div class="sidebar__bio">
+            <p>UX generalist, design systems enthusiast, cartoon hobbyist, and library scholar-ish.</p>
+            <p>Currently in New York City, helping fans experience more live at <strong class="sidebar__employer">SeatGeek.</strong></p>
+        </div>
+    </aside>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <a class="collage" href="about.html" aria-label="About Bella">
+        <img class="collage__item collage__folder-back" src="assets/collage/folder-back.webp" alt="">
+        <img class="collage__item collage__photo-50" src="assets/about/adobe-talk.webp" alt="">
+        <img class="collage__item collage__photo-51" src="assets/about/trinity.webp" alt="">
+        <img class="collage__item collage__polaroid" src="assets/about/polaroid.webp" alt="">
+        <img class="collage__item collage__photo-52" src="assets/about/beach.webp" alt="">
+        <img class="collage__item collage__photo-53" src="assets/about/pratt.webp" alt="">
+        <img class="collage__item collage__photo-54" src="assets/about/reality-awaits.webp" alt="">
+        <img class="collage__item collage__folder-front" src="assets/collage/folder-front.webp" alt="">
+    </a>
+
+    <main class="case-study-page">
+        <!-- 1 · Intro -->
+        <header class="cs-section cs-section--intro">
+            <p class="cs-label">Case study</p>
+            <h1 class="cs-title">Personalizing news with ‘Topics in Onboarding’</h1>
+            <p>Serving users tailored content with a new onboarding feature.</p>
+        </header>
+
+        <!-- 2 · Fast facts -->
+        <section class="cs-section cs-section--facts" aria-label="Project facts">
+            <dl class="cs-facts">
+                <div>
+                    <dt>Timeline</dt>
+                    <dd><p>June–September 2024</p><p>(15 weeks)</p></dd>
+                </div>
+                <div>
+                    <dt>Team</dt>
+                    <dd><p>3 Product Designers</p><p>1 Product Manager</p><p>2 UX Researchers</p></dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd><p>Figma</p><p>FigJam</p><p>Jira</p></dd>
+                </div>
+                <div>
+                    <dt>UX Disciplines</dt>
+                    <dd><p>User research study</p><p>User flows</p><p>Packaged for dev handoff</p></dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- 3 · Hero. Swap the <img> for a <video autoplay muted loop playsinline> once the prototype video exists. -->
+        <section class="cs-section cs-section--hero" aria-label="Hero image">
+            <div class="cs-hero">
+                <img src="assets/case-studies/nyt-topics/hero.webp" width="1463" height="870" alt="New York Times onboarding screen for choosing topics to follow">
+            </div>
+        </section>
+
+        <!-- 4 · About -->
+        <section class="cs-section" aria-labelledby="cs-about">
+            <p class="cs-label" id="cs-about">About</p>
+            <h2 class="heading-1 cs-headline">I was tasked to create a system of solutions to retain the 649k+ new subscribers expected to come in during the 2024 Election period.</h2>
+            <p>With our initiative to create a more personalized reading experience in mind, I designed a screen in the onboarding flow to track interest in certain news topics, and a Bottom Sheet component to reflect those topics back to readers.</p>
+        </section>
+
+        <!-- 5 · Design process -->
+        <section class="cs-section" aria-labelledby="cs-process">
+            <p class="cs-label" id="cs-process">Design process</p>
+            <div class="cs-deck">
+                <!-- TODO: replace the placeholder with the Figma Slides embed, e.g.
+                     <iframe src="https://embed.figma.com/slides/FILE_KEY/...?embed-host=share" allowfullscreen title="Topics in Onboarding — design process deck"></iframe> -->
+                <div class="cs-deck__placeholder">Figma Slides deck goes here</div>
+            </div>
+        </section>
+
+        <!-- 6 · Deliverables -->
+        <section class="cs-section" aria-labelledby="cs-deliverables">
+            <p class="cs-label" id="cs-deliverables">Deliverables</p>
+            <h2 class="heading-1 cs-headline">Gathering signals on what matters to readers during initial onboarding, and using them to expose users to personalized content onsite and in the app.</h2>
+
+            <div class="cs-deliverables">
+                <!-- TODO: deliverable images are placeholders (the hero image) -->
+                <article class="cs-deliverable">
+                    <div class="cs-deliverable__text">
+                        <p class="cs-deliverable__title">Topic selection in the new subscriber onboarding flow.</p>
+                        <p>A quick, easy-to-read screen prompting users to select areas of interest.</p>
+                    </div>
+                    <figure><img src="assets/case-studies/nyt-topics/hero.webp" width="1463" height="870" alt="Topic selection screen on desktop and mobile" loading="lazy"></figure>
+                </article>
+                <article class="cs-deliverable">
+                    <div class="cs-deliverable__text">
+                        <p class="cs-deliverable__title">Connection to in-app You Tab</p>
+                        <p>Topics selected in web onboarding that correlate directly with a You Tab Interest are collected, and automatically reflected when a user (sub and/or reg) downloads the app and opens the You Tab.</p>
+                    </div>
+                    <figure><img src="assets/case-studies/nyt-topics/hero.webp" width="1463" height="870" alt="Topics chosen on the web carrying over to the You Tab in the app" loading="lazy"></figure>
+                </article>
+                <article class="cs-deliverable">
+                    <div class="cs-deliverable__text">
+                        <p class="cs-deliverable__title">Bottom sheet component</p>
+                        <p>A subtle prompt on article pages to explore and refine interests, incorporating user control and adaptability.</p>
+                    </div>
+                    <figure><img src="assets/case-studies/nyt-topics/hero.webp" width="1463" height="870" alt="Bottom sheet prompting readers to refine their interests" loading="lazy"></figure>
+                </article>
+            </div>
+        </section>
+
+        <p class="cs-end">End of case study</p>
+    </main>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="icon-arrow" viewBox="0 0 14 14"><path fill="currentColor" d="M10.5 4.1125C10.5 3.95779 10.4385 3.80942 10.3291 3.70002C10.2197 3.59062 10.0714 3.52917 9.91667 3.52917L5.25 3.5C5.09529 3.5 4.94692 3.56146 4.83752 3.67085C4.72812 3.78025 4.66667 3.92862 4.66667 4.08333C4.66667 4.23804 4.72812 4.38642 4.83752 4.49581C4.94692 4.60521 5.09529 4.66667 5.25 4.66667H8.49333L3.66917 9.5025C3.61449 9.55673 3.5711 9.62125 3.54148 9.69233C3.51187 9.76341 3.49662 9.83966 3.49662 9.91667C3.49662 9.99367 3.51187 10.0699 3.54148 10.141C3.5711 10.2121 3.61449 10.2766 3.66917 10.3308C3.72339 10.3855 3.78791 10.4289 3.859 10.4585C3.93008 10.4881 4.00633 10.5034 4.08333 10.5034C4.16034 10.5034 4.23659 10.4881 4.30767 10.4585C4.37875 10.4289 4.44327 10.3855 4.4975 10.3308L9.33333 5.495V8.75C9.33333 8.90471 9.39479 9.05308 9.50419 9.16248C9.61358 9.27187 9.76196 9.33333 9.91667 9.33333C10.0714 9.33333 10.2197 9.27187 10.3291 9.16248C10.4385 9.05308 10.5 8.90471 10.5 8.75V4.1125Z"/></symbol>
+    </svg>
+</body>
+</html>
