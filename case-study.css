@@ -89,9 +89,11 @@
 /* 5 · Design process (Figma Slides embed) ------------------------------- */
 
 .cs-deck {
-    /* 16:9 slide + Figma's 48px bottom bar. The embed uses "Fill" scaling, so the
-       slide covers the whole frame and the controls sit on top of it. */
-    --deck-footer: 48px;
+    /* 16:9 + Figma's bottom bar (48px, +1 so the slide doesn't scroll by a pixel).
+       With scaling=scale-down-width the slide then fills the frame edge to edge.
+       Tested: +50 or more shows a line of prototype background; scaling=contain
+       adds 60px bands above and below. */
+    --deck-footer: 49px;
     position: relative;
     height: 0;
     padding-bottom: calc(56.25% + var(--deck-footer));
