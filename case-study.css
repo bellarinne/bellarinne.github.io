@@ -51,17 +51,6 @@
     color: var(--cs-heading);
 }
 
-.cs-inline-link {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 0.5px;
-    text-underline-offset: 3px;
-}
-
-.cs-inline-link:hover {
-    color: var(--color-link-hover);
-}
-
 /* 1 · Intro --------------------------------------------------------------- */
 
 .cs-title {
