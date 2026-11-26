@@ -89,10 +89,14 @@
 /* 5 · Design process (Figma Slides embed) ------------------------------- */
 
 .cs-deck {
-    --deck-footer: 48px;           /* Figma's bottom bar (file name, slide arrows) */
+    /* Figma's prototype embed adds fixed chrome around the slide: a 60px band above
+       (fullscreen button), a 60px band below (arrows) and a 48px bottom bar. Making the
+       frame exactly that much taller than 16:9 lets the slide fill the full width. */
+    --deck-bands: 120px;
+    --deck-footer: 48px;
     position: relative;
     height: 0;
-    padding-bottom: calc(56.25% + var(--deck-footer));   /* 16:9 slide + the bar */
+    padding-bottom: calc(56.25% + var(--deck-bands) + var(--deck-footer));
     overflow: hidden;
     outline: 0.5px solid var(--color-border);            /* outline, not border, so the frame keeps exactly 16:9 */
     outline-offset: -0.5px;
