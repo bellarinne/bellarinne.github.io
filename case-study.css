@@ -15,7 +15,13 @@
     position: relative;
     z-index: 2;
     margin-left: var(--content-x);   /* margin, not padding, so the page doesn't cover the folder */
-    padding: 46px var(--page-padding) 56px 0;
+    padding: 40px var(--page-padding) 48px 0;
+}
+
+/* Body copy on this page: 20px leading (8pt grid friendly), comfortable line length */
+.case-study-page p {
+    line-height: 20px;
+    text-wrap: pretty;             /* avoids a single orphaned word on the last line */
 }
 
 .cs-label {
@@ -35,8 +41,16 @@
 }
 
 .cs-headline {
-    max-width: 980px;
+    max-width: 880px;
     color: var(--cs-heading);
+    text-wrap: balance;            /* even line lengths, no one-word last line */
+}
+
+/* Paragraph under a headline or title: a little more air (16 + 8 = 24px) and a readable measure */
+.cs-headline + p,
+.cs-title + p {
+    max-width: 640px;
+    margin-top: 8px;
 }
 
 /* 1 · Intro --------------------------------------------------------------- */
@@ -64,8 +78,6 @@
     margin: 0;
     color: var(--color-primary);
 }
-
-.cs-facts dd p + p { margin-top: 2px; }
 
 /* 3 · Hero (same card treatment as the home page) ------------------------- */
 
@@ -113,7 +125,6 @@
     border: 0;
 }
 
-
 /* 6 · Deliverables ------------------------------------------------------- */
 
 .cs-deliverables {
@@ -125,7 +136,7 @@
 
 .cs-deliverable {
     display: grid;
-    grid-template-columns: 270px minmax(0, 637px);
+    grid-template-columns: 272px minmax(0, 640px);
     justify-content: space-between;
     align-items: center;
     gap: 48px;
@@ -141,7 +152,7 @@
 
 /* Every other row flips: image left, text right */
 .cs-deliverable:nth-child(even) {
-    grid-template-columns: minmax(0, 637px) 270px;
+    grid-template-columns: minmax(0, 640px) 272px;
 }
 
 .cs-deliverable:nth-child(even) .cs-deliverable__text { order: 2; }
@@ -156,8 +167,9 @@
 
 .cs-end {
     margin-top: 96px;
-    padding-top: 40px;
+    padding-top: 48px;
     border-top: 0.5px solid var(--cs-rule);
     text-align: center;
     color: var(--color-secondary);
+    white-space: pre;              /* keep the spacing around the sparkles */
 }
